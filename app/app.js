@@ -4,7 +4,8 @@
 angular.module('myApp', [
     'ngRoute',
     'myApp.home',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngCookies'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     //$locationProvider.hashPrefix('!');
