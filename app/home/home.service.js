@@ -2,13 +2,6 @@
 
 angular.module('myApp.home')
 
-.factory("LoginFactory", ["$http", function($http) {
+.factory("HomeFactory", ["$rootScope", "$http", "$cookies", function($rootScope, $http, $cookies) {
 
-    var LoginUser = function(username, password) {
-        console.log(username + " " + password);
-    }
-
-    return {
-        LoginUser: LoginUser
-    }
 }])
