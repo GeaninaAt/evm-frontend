@@ -2,7 +2,7 @@
 
 angular.module('myApp.login')
 
-.factory("LoginFactory", ["$rootScope", "$http", "$cookies", function($rootScope, $http, $cookies) {
+.factory("LoginFactory", ["$rootScope", "$http", "$cookies", "$location", function($rootScope, $http, $cookies, $location) {
 
     var authenticateUser = function(credentials) {
 
@@ -16,8 +16,10 @@ angular.module('myApp.login')
         }).then(function(response) {
             if (response.data.name) {
                 $cookies.put('userLogged', true);
+                $cookies.put('userName', credentials.username)
                 $rootScope.loginValidation = false;
                 console.log("logat");
+                $location.path('/home');
             } else {
                 $cookies.put('userLogged', false);
             }

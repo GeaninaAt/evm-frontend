@@ -68,9 +68,8 @@ a {
 
 #map {
     height: 500px;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 180px;
     /*    box-shadow: 3px 3px 10px gray;*/
 }
 

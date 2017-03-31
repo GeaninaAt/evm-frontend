@@ -10,6 +10,8 @@ angular.module('myApp.login', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 }])
 
 .controller('loginController', ["$scope", "$location", "$cookies", "LoginFactory", function($scope, $location, $cookies, LoginFactory) {
+    $scope.username = $cookies.get("userName");
+
     /**
      * Log the user in application
      */
@@ -27,6 +29,12 @@ angular.module('myApp.login', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
      */
     $scope.goToRegister = function() {
         $location.path('/register')
+    }
+
+    $scope.logOut = function() {
+        $location.path('/login');
+        $cookies.remove("username");
+        $cookies.remove('userLogged');
     }
 
 
