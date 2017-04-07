@@ -10,7 +10,7 @@ angular.module('myApp.login', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 }])
 
 .controller('loginController', ["$scope", "$location", "$cookies", "LoginFactory", function($scope, $location, $cookies, LoginFactory) {
-    $scope.username = $cookies.get("userName");
+    $scope.userName = $cookies.get("userName");
 
     /**
      * Log the user in application

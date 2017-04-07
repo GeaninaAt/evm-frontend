@@ -1,4 +1,11 @@
 <nav-Bar-Directive></nav-Bar-Directive>
 <div class="container">
     <div class="span12" id="map"></div>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Change Radius Area
+  <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li ng-repeat="radius in [1000,2000,3000,4000,5000] track by $index" ng-click="changeSearchArea(radius)"><a href="">Radius Area {{radius}}</a></li>
+        </ul>
+    </div>
 </div>
