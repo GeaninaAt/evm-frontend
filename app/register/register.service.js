@@ -3,10 +3,18 @@
 angular.module('myApp.register')
 
 .factory("registerFactory", ["$http", function($http) {
-    var registerUser = function(bodyData) {
-        var url = "http://localhost:8090/rest/users/registration"
+    var config = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
 
-        return $http.post(url, bodyData).then(function(response) {
+    var registerUser = function(bodyData, config) {
+        console.log(bodyData);
+        var url = "http://localhost:8080/rest/users/registration"
+
+        return $http.post(url, bodyData, config).then(function(response) {
             console.log(response);
             return response.data;
         });

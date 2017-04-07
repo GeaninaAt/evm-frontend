@@ -11,7 +11,7 @@ angular.module('myApp.login')
             authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)
         } : {};
 
-        $http.get('http://localhost:8090/rest/users', {
+        $http.get('http://localhost:8080/rest/users', {
             headers: headers
         }).then(function(response) {
             if (response.data.name) {
