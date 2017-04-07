@@ -11,9 +11,18 @@ angular.module('myApp.home', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
 .controller('homeController', ["$scope", "$location", "$cookies", 'HomeFactory', function($scope, $location, $cookies, HomeFactory) {
 
-
+    /**
+     * get curent created Events
+     */
     HomeFactory.getEvents().then(function(response) {
         $scope.existingEvents = response.data;
     });
+
+    /**
+     * go to event details page
+     */
+    $scope.takeEventDetails = function(eventId) {
+        $location.path('/event_details').search({ eventId: eventId });
+    }
 
 }]);
