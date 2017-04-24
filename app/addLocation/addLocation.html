@@ -2,19 +2,23 @@
     <div class="row">
         <h2>Add a new Location</h2>
 
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="locationForm">
             <fieldset>
 
                 <!-- Form Name -->
                 <legend>Complete the form and submit</legend>
-                <div class="alert alert-info" ng-show="userCreated == true">
-                    <strong>Info!</strong> Yor user has been created.
+
+                <div class="alert alert-success" ng-show="addedLocation == true">
+                    <strong>Success!</strong> Your location has been succesfuly added.
+                </div>
+                <div class="alert alert-warning" ng-show="invalidLocationForm == true">
+                    <strong>Success!</strong> Please complete all fields.
                 </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Location name </label>
                     <div class="col-md-4">
-                        <input id="textinput" ng-model="eventName" name="textinput" placeholder="Location Name" class="form-control input-md" required="" type="text">
+                        <input id="textinput" ng-model="locationName" name="textinput" placeholder="Location Name" class="form-control input-md" required= type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -23,7 +27,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">District</label>
                     <div class="col-md-4">
-                        <input id="textinput" ng-model="description" name="textinput" placeholder="District" class="form-control input-md" required="" type="text">
+                        <input id="textinput" ng-model="district" name="textinput" placeholder="District" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -31,7 +35,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Street</label>
                     <div class="col-md-4">
-                        <input id="textinput" ng-model="description" name="textinput" placeholder="Street" class="form-control input-md" required="" type="text">
+                        <input id="textinput" ng-model="street" name="textinput" placeholder="Street" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -39,8 +43,14 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Number</label>
                     <div class="col-md-4">
-                        <input id="textinput" ng-model="description" name="textinput" placeholder="Number" class="form-control input-md" required="" type="text">
+                        <input id="textinput" ng-model="number" name="textinput" placeholder="Number" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"> </label>
+                    <div class="col-md-4">
+                        <button ng-click="addLocation(locationName,district,street,number)" name="singlebutton" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </fieldset>

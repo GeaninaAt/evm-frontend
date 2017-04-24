@@ -9,10 +9,10 @@ angular.module('myApp', [
         'myApp.eventDetails',
         'myApp.addEvent',
         'myApp.addLocation',
+        'myApp.addOrganizer',
+        'myApp.adminDashboard',
         'ui.bootstrap',
         'ngCookies'
-
-
 
     ])
     .config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {

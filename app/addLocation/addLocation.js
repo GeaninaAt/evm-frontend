@@ -9,7 +9,37 @@ angular.module('myApp.addLocation', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     });
 }])
 
-.controller('addLocationController', ["$scope", "$location", "$cookies", function($scope, $location, $cookies) {
+.controller('addLocationController', ["$scope", "$location", "$cookies", "addLocationFactory", function($scope, $location, $cookies, addLocationFactory) {
+
+    $scope.addedLocation = false;
+    $scope.invalidLocationForm = false;
+    $scope.addLocation = function(locationName, district, street, number) {
+        var dataLocationObject = {
+            "locationName": locationName,
+            "district": district,
+            "street": street,
+            "number": number
+        };
+
+        if ($scope.locationForm.$pristine || $scope.locationForm.$invalid) {
+            $scope.invalidLocationForm = true;
+            $scope.addedLocation = false;
+        } else {
+            addLocationFactory.addLocation(dataLocationObject).then(
+                function(responseSuccess) {
+                    $scope.addedLocation = true;
+                    $scope.invalidLocationForm = false;
+                },
+                function(responseError) {
+                    $scope.addedLocation = false;
+                    $scope.invalidLocationForm = false;
+                }
+            );
+        }
+
+
+
+    }
 
 
 

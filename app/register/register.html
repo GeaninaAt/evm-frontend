@@ -1,16 +1,21 @@
 <div class="container">
     <div class="row">
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="registerForm">
             <fieldset>
-
                 <!-- Form Name -->
                 <legend>Register Here</legend>
 
+                <div class="alert alert-success" ng-show="addedUser == true">
+                    <strong>Success!</strong> User Succesfull added.
+                </div>
+                <div class="alert alert-warning" ng-show="invalidRegisterForm == true">
+                    <strong>Warning!</strong> Please complete all form fields.
+                </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">First Name</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="textinput" ng-model="firstName" placeholder="Insert your First Name" class="form-control input-md" required="" type="text">
+                        <input id="textinput" name="textinput" ng-model="firstName" placeholder="Insert your First Name" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -19,7 +24,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Last Name</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="textinput" ng-model="lastName" placeholder="Insert your Last Name" class="form-control input-md" required="" type="text">
+                        <input id="textinput" name="textinput" ng-model="lastName" placeholder="Insert your Last Name" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -28,7 +33,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">User Name</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="textinput" ng-model="userName" placeholder="Insert your Username" class="form-control input-md" required="" type="text">
+                        <input id="textinput" name="textinput" ng-model="userName" placeholder="Insert your Username" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -37,7 +42,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Email</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="textinput" ng-model="email" placeholder="Insert your Email" class="form-control input-md" required="" type="email">
+                        <input id="textinput" name="textinput" ng-model="email" placeholder="Insert your Email" class="form-control input-md" required type="email">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -46,7 +51,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Password</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="textinput" ng-model="password" placeholder="Insert your Password" class="form-control input-md" required="" type="password">
+                        <input id="textinput" name="textinput" ng-model="password" placeholder="Insert your Password" class="form-control input-md" required type="password">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -55,7 +60,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Confirm Password</label>
                     <div class="col-md-4">
-                        <input id="textinput" name="textinput" ng-model="confirmPassword" placeholder="Confirm your Password" class="form-control input-md" required="" type="password">
+                        <input id="textinput" name="textinput" ng-model="confirmPassword" placeholder="Confirm your Password" class="form-control input-md" required type="password">
                         <span class="help-block"> </span>
                     </div>
                 </div>

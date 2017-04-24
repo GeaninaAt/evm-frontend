@@ -34,6 +34,9 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     });
     //console.log($scope.data);
     $scope.addEvent = function(eventName, description, startDate, endDate, location, organizer, category, isFree) {
+
+        $scope.addedEvent = false;
+        $scope.invalidEventForm = false;
         var eventObject = {
             "eventName": eventName,
             "description": description,
@@ -44,11 +47,23 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
             "category": category,
             "free": (isFree == 'true')
         }
-        addEventFactory.addEvent(eventObject).then(function(response) {
-            if (response.status == 201) {
-                $scope.userCreated = true;
-            }
-        })
+
+        if ($scope.addEventForm.$pristine || $scope.addEventForm.$invalid) {
+            $scope.invalidEventForm = true;
+            $scope.addedEvent = false;
+        } else {
+            addEventFactory.addEvent(eventObject).then(
+                function(responseSuccess) {
+                    $scope.addedEvent = true;
+                    $scope.invalidEventForm = false;
+                },
+                function(responseError) {
+                    $scope.addedEvent = false;
+                    $scope.invalidEventForm = false;
+                }
+            );
+        }
+
 
     }
 

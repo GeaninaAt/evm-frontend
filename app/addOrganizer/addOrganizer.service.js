@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('myApp.addLocation')
+angular.module('myApp.addOrganizer')
 
-.factory("addLocationFactory", ["$rootScope", "$http", "$cookies", "$location", function($rootScope, $http, $cookies, $location) {
+.factory("addOrganizerFactory", ["$rootScope", "$http", "$cookies", "$location", function($rootScope, $http, $cookies, $location) {
 
 
-    var addLocation = function(locationData) {
-        var url = "http://localhost:8080/locations";
+    var addOrganizer = function(locationData) {
+        var url = "http://localhost:8080/organizers";
         var config = {
             headers: {
                 "Authorization": "Bearer " + $cookies.get("userToken")
@@ -22,6 +22,6 @@ angular.module('myApp.addLocation')
     }
 
     return {
-        addLocation: addLocation
+        addOrganizer: addOrganizer
     }
 }])

@@ -2,19 +2,23 @@
     <div class="row">
         <h2>Add a new event</h2>
 
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="addEventForm">
             <fieldset>
 
                 <!-- Form Name -->
                 <legend>Complete the form and submit</legend>
-                <div class="alert alert-info" ng-show="userCreated == true">
-                    <strong>Info!</strong> Yor user has been created.
+
+                <div class="alert alert-success" ng-show="addedEvent == true">
+                    <strong>Success!</strong> Your event has been succesfuly added.
+                </div>
+                <div class="alert alert-warning" ng-show="invalidEventForm == true">
+                    <strong>Warning!</strong> Please complete all fields.
                 </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Event name </label>
                     <div class="col-md-4">
-                        <input id="textinput" ng-model="eventName" name="textinput" placeholder="Event Name" class="form-control input-md" required="" type="text">
+                        <input id="textinput" ng-model="eventName" name="textinput" placeholder="Event Name" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -23,7 +27,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="textinput">Description</label>
                     <div class="col-md-4">
-                        <input id="textinput" ng-model="description" name="textinput" placeholder="Insert your Last Name" class="form-control input-md" required="" type="text">
+                        <input id="textinput" ng-model="description" name="textinput" placeholder="Insert your Last Name" class="form-control input-md" required type="text">
                         <span class="help-block"> </span>
                     </div>
                 </div>
@@ -56,7 +60,7 @@
                     <label class="col-md-4 control-label" for="textinput">Location</label>
                     <div class="col-md-4">
                         <label for="sel1">Select Location:</label>
-                        <select ng-model="location" class="form-control" id="sel1">
+                        <select ng-model="location" class="form-control" id="sel1" required>
                         <option ng-repeat="location in locations">{{location.locationName}}</option>
                     </select>
                     </div>
@@ -67,7 +71,7 @@
                     <label class="col-md-4 control-label" for="textinput">Organizer</label>
                     <div class="col-md-4">
                         <label for="sel2">Select organizer:</label>
-                        <select class="form-control" id="sel2" ng-model="organizer">
+                        <select class="form-control" id="sel2" ng-model="organizer" required>
                         <option ng-repeat="organizer in organizers">{{organizer.organizerName}}</option>
                     </select>
                     </div>
@@ -78,7 +82,7 @@
                     <label class="col-md-4 control-label" for="textinput">Category</label>
                     <div class="col-md-4">
                         <label for="sel3">Select value:</label>
-                        <select class="form-control" id="sel3" ng-model="category">
+                        <select class="form-control" id="sel3" ng-model="category" required>
                         <option ng-repeat="category in ['OTHER','MUSIC','THEATRE','SPORTS','TECHNOLOGY'] track by $index">{{category}}</option>
                     </select>
                     </div>
@@ -89,7 +93,7 @@
                     <label class="col-md-4 control-label" for="textinput">Is Free </label>
                     <div class="col-md-4">
                         <label for="sel4">Select value:</label>
-                        <select class="form-control" id="sel4" ng-model="isFree">
+                        <select class="form-control" id="sel4" ng-model="isFree" required>
                         <option ng-repeat="isFree in ['false','true'] track by $index">{{isFree}}</option>
                     </select>
                     </div>

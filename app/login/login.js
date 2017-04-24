@@ -26,11 +26,14 @@ angular.module('myApp.login', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
                     'Authorization': 'Bearer' + ' ' + response,
                 }
             }
+            console.log(response)
             $http.defaults.headers.common.Authorization = 'Bearer ' + response;
             $http.get('http://localhost:8080/users', config).then(function(response) {
-                console.log(1)
+                //console.log(1)
                 console.log(response);
+                $location.path('/home')
             }, function(err) {
+                $rootScope.loginValidation = true;
                 console.log(err);
             })
 

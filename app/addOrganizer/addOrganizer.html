@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <h2>Add a new Organizer</h2>
+
+        <form class="form-horizontal" name="organizerForm">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Complete the form and submit</legend>
+
+                <div class="alert alert-success" ng-show="addedOrganizer == true">
+                    <strong>Success!</strong> Your location has been succesfuly added.
+                </div>
+                <div class="alert alert-warning" ng-show="invalidOrganizerForm == true">
+                    <strong>Warning!</strong> Please complete all fields.
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Organizer name </label>
+                    <div class="col-md-4">
+                        <input id="textinput" ng-model="organizerName" name="textinput" placeholder="Location Name" class="form-control input-md" required=t ype="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Description</label>
+                    <div class="col-md-4">
+                        <input id="textinput" ng-model="organizerDescription" name="textinput" placeholder="District" class="form-control input-md" required type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="textinput">Site</label>
+                    <div class="col-md-4">
+                        <input id="textinput" ng-model="site" name="textinput" placeholder="Street" class="form-control input-md" required type="text">
+                        <span class="help-block"> </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="singlebutton"> </label>
+                    <div class="col-md-4">
+                        <button ng-click="addOrganizer(organizerName,description,site)" name="singlebutton" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</div>

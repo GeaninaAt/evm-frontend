@@ -9,7 +9,7 @@ angular.module('myApp.addEvent')
         //we have to change this
         var config = {
             headers: {
-                authorization: "Basic " + btoa('user' + ":" + 'pass')
+                "Authorization": "Bearer " + $cookies.get("userToken")
             }
         }
         return $http.get(url, config).then(function(response) {
@@ -24,7 +24,7 @@ angular.module('myApp.addEvent')
         //we have to change this
         var config = {
             headers: {
-                authorization: "Basic " + btoa('user' + ":" + 'pass')
+                "Authorization": "Bearer " + $cookies.get("userToken")
             }
         }
         return $http.get(url, config).then(function(response) {
@@ -39,7 +39,7 @@ angular.module('myApp.addEvent')
         //we have to change this
         var config = {
             headers: {
-                authorization: "Basic " + btoa('user' + ":" + 'pass')
+                "Authorization": "Bearer " + $cookies.get("userToken")
             }
         }
         return $http.post(url, eventData, config).then(

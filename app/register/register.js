@@ -14,6 +14,10 @@ angular.module('myApp.register', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     /**
      * register a user
      */
+
+
+    $scope.addedUser = false;
+    $scope.invalidUserForm = false;
     $scope.registerUser = function(firstName, lastName, userName, email, password, confirmPassword) {
         var dataBody = {
             "firstName": firstName,
@@ -23,9 +27,14 @@ angular.module('myApp.register', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
             "password": password,
             "matchPassword": confirmPassword
         }
-        if (firstName && lastName && userName && email && password && confirmPassword) {
+        if ($scope.registerForm.$pristine || $scope.registerForm.$invalid) {
+            $scope.invalidRegisterForm = true;
+            $scope.addedUser = false;
+        } else {
             registerFactory.registerUser(dataBody).then(function(response) {
-                console.log(response);
+                // console.log(response);
+                $scope.addedUser = true;
+                $scope.invalidLocationForm = false;
             })
 
         }

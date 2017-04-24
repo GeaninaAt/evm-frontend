@@ -10,7 +10,7 @@ angular.module('myApp.eventDetails')
     }
     var config = {
         headers: {
-            authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)
+            "Authorization": "Bearer " + $cookies.get("userToken")
         }
     }
     var getEventById = function(eventId) {
