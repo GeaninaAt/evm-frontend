@@ -7,16 +7,23 @@ angular.module('myApp', [
         'myApp.register',
         'myApp.home',
         'myApp.eventDetails',
+        'myApp.addEvent',
+        'myApp.addLocation',
         'ui.bootstrap',
         'ngCookies'
 
 
 
     ])
-    .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    .config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {
         //$locationProvider.hashPrefix('!');
+        $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+        //$httpProvider.defaults.headers.common['Access-Control-Allow-Methods'] = 'GET,HEAD,OPTIONS,POST,PUT';
+        //$httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization';
 
         $routeProvider.otherwise({ redirectTo: '/login' });
+
+
     }])
     .run(['$rootScope', '$location', '$cookies', function($rootScope, $location, $cookies) {
         $rootScope.$on('$routeChangeStart', function(event) {

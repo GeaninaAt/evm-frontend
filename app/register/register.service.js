@@ -12,7 +12,7 @@ angular.module('myApp.register')
 
     var registerUser = function(bodyData, config) {
         console.log(bodyData);
-        var url = "http://localhost:8080/rest/users/registration"
+        var url = "http://localhost:8080/register"
 
         return $http.post(url, bodyData, config).then(function(response) {
             console.log(response);

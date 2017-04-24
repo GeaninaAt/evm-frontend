@@ -9,7 +9,7 @@ angular.module('myApp.home', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     });
 }])
 
-.controller('homeController', ["$scope", "$location", "$cookies", 'HomeFactory', function($scope, $location, $cookies, HomeFactory) {
+.controller('homeController', ["$scope", "$location", "$cookies", "$http", 'HomeFactory', function($scope, $location, $cookies,$http, HomeFactory) {
 
     /**
      * get curent created Events

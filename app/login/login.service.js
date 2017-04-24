@@ -6,23 +6,19 @@ angular.module('myApp.login')
 
     var authenticateUser = function(credentials) {
 
-
-        var headers = credentials ? {
-            authorization: "Basic " + btoa(credentials.username + ":" + credentials.password)
-        } : {};
-
-        $http.get('http://localhost:8080/rest/users', {
-            headers: headers
-        }).then(function(response) {
-            if (response.data.name) {
+        return $http.post('http://localhost:8080/authenticate?username=' + credentials.username + '&password=' + credentials.password).then(function(response) {
+            //console.log(response);
+            if (response.data.token) {
                 $cookies.put('userLogged', true);
+                $cookies.put('userToken', response.data.token);
                 $cookies.put('userName', credentials.username)
                 $rootScope.loginValidation = false;
-                console.log("logat");
-                $location.path('/home');
+                // $location.path('/home');
             } else {
                 $cookies.put('userLogged', false);
             }
+            $http.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+            return response.data.token;
             // callback && callback($rootScope.authenticated);
         }, function(response) {
             console.log(response)
@@ -30,7 +26,9 @@ angular.module('myApp.login')
             //   $rootScope.authenticated = false;
             //callback && callback(false);
         });
+
     };
+
 
     return {
         authenticateUser: authenticateUser

@@ -9,7 +9,7 @@ angular.module('myApp.login', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     });
 }])
 
-.controller('loginController', ["$scope", "$location", "$cookies", "LoginFactory", function($scope, $location, $cookies, LoginFactory) {
+.controller('loginController', ["$scope", "$location", "$cookies", "LoginFactory", "$http", function($scope, $location, $cookies, LoginFactory, $http) {
     $scope.userName = $cookies.get("userName");
 
     /**
@@ -20,7 +20,21 @@ angular.module('myApp.login', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
             username: userName,
             password: password
         }
-        LoginFactory.authenticateUser(credentials);
+        LoginFactory.authenticateUser(credentials).then(function(response) {
+            var config = {
+                headers: {
+                    'Authorization': 'Bearer' + ' ' + response,
+                }
+            }
+            $http.defaults.headers.common.Authorization = 'Bearer ' + response;
+            $http.get('http://localhost:8080/users', config).then(function(response) {
+                console.log(1)
+                console.log(response);
+            }, function(err) {
+                console.log(err);
+            })
+
+        });
     }
     var favoriteCookie = $cookies.get('userLogged');
     console.log(favoriteCookie);
