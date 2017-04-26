@@ -27,4 +27,12 @@ angular.module("myApp")
             $location.path('/admin_Dashboard')
         }
 
+        $scope.logOut = function() {
+            $cookies.remove('userLogged');
+            $cookies.remove('userToken');
+            $cookies.remove('userRole');
+            $cookies.remove('userName');
+            $location.path('/login')
+        }
+
     }]);

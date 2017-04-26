@@ -27,9 +27,8 @@ angular.module('myApp', [
     }])
     .run(['$rootScope', '$location', '$cookies', function($rootScope, $location, $cookies) {
         $rootScope.$on('$routeChangeStart', function(event) {
-            var userLogged = $cookies.get('userLogged');
-            /* if ($cookies.get('userLogged') != "true") {
-                 $location.path('/login');
-             }*/
+            if (!$cookies.get('userToken')) {
+                $location.path('/login');
+            }
         });
     }]);

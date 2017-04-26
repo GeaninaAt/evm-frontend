@@ -18,15 +18,21 @@ angular.module('myApp.adminDashboard', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
      */
 
     $scope.goToLocations = function() {
-        $location.path("/add_location");
+        if ($cookies.get("userRole") == "ADMIN") {
+            $location.path("/add_location");
+        }
     }
 
     $scope.goToOrganizers = function() {
-        $location.path("/add_organizer");
+        if ($cookies.get("userRole") == "ADMIN") {
+            $location.path("/add_organizer");
+        }
     }
 
     $scope.goToEvents = function() {
-        $location.path("/add_event");
+        if ($cookies.get("userRole") == "ADMIN") {
+            $location.path("/add_event");
+        }
     }
 
 

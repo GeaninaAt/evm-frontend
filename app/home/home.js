@@ -70,4 +70,13 @@ angular.module('myApp.home', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
     }
 
 
-}]);
+}])
+
+.filter('limitText', function() {
+
+    function returnLimitedText(text) {
+        var parsedText = text.substr(0, text.indexOf('.')); 
+        return parsedText;
+    }
+    return returnLimitedText;
+})
