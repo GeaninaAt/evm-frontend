@@ -4,7 +4,7 @@ angular.module('myApp.addOrganizer')
 
 .factory("addOrganizerFactory", ["$rootScope", "$http", "$cookies", "$location", function($rootScope, $http, $cookies, $location) {
 
-
+    //add Organizer http call
     var addOrganizer = function(locationData) {
         var url = "http://localhost:8080/organizers";
         var config = {
@@ -12,7 +12,6 @@ angular.module('myApp.addOrganizer')
                 "Authorization": "Bearer " + $cookies.get("userToken")
             }
         }
-        console.log(config);
         return $http.post(url, locationData, config).then(function(response) {
             return response;
 

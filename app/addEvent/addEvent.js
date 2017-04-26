@@ -11,6 +11,12 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
 .controller('addEventController', ["$scope", "$location", "$cookies", 'addEventFactory', function($scope, $location, $cookies, addEventFactory) {
 
+    /**
+     * rebuild an array based on locations and organizers response from server.
+     * This is necessary beacuse when we add an event we select the 
+     * name from dropdown but we have to sent location or organizer ID 
+     * to the server
+     */
     addEventFactory.getLocations().then(function(response) {
         $scope.locations = []
         for (var i in response) {
@@ -19,7 +25,7 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
                 locationName: response[i].locationName
             })
         }
-        //console.log($scope.locations)
+
     });
 
     addEventFactory.getOrganizers().then(function(response) {
@@ -32,7 +38,12 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
         }
         console.log($scope.organizers)
     });
-    //console.log($scope.data);
+
+    /**
+     * add event functionality
+     * it also checks that all fields of the 
+     * form to be completed
+     */
     $scope.addEvent = function(eventName, description, startDate, endDate, location, organizer, category, isFree) {
 
         $scope.addedEvent = false;
@@ -67,6 +78,12 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
     }
 
+
+    /**
+     * User the array crated at the begining of the controller
+     * to iterate trough the names and take the id for the 
+     * selected one, which can be pass to the server
+     */
     function findId(obj, valueToFind) {
         var returnedIdForValue;
         for (var i in obj) {

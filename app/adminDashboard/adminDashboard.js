@@ -11,12 +11,20 @@ angular.module('myApp.adminDashboard', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
 .controller('adminDashboardController', ["$scope", "$location", "$cookies", "adminDashboardFactory", function($scope, $location, $cookies, adminDashboardFactory) {
 
+    /**
+     * navigate to addmin pages
+     * to add locations,events or 
+     * organizers
+     */
+
     $scope.goToLocations = function() {
         $location.path("/add_location");
     }
+
     $scope.goToOrganizers = function() {
         $location.path("/add_organizer");
     }
+
     $scope.goToEvents = function() {
         $location.path("/add_event");
     }

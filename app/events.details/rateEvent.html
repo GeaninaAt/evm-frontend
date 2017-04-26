@@ -1,10 +1,18 @@
 <div class="modal-header">
-    <h1>This is the title {{item.name}}</h1>
-</div>'
+    <h2>Enter your review below: </h2>
+    <div class="alert alert-danger" ng-show="emptyContent == true">
+        <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+    </div>
+</div>
 <div class="modal-body">
-
+    <form>
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea ng-model="reviewBody" class="form-control" rows="5" id="comment"></textarea>
+        </div>
+    </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-primary" ng-click="submitReview()">Submit review</button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

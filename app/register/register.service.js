@@ -10,6 +10,7 @@ angular.module('myApp.register')
         }
     }
 
+    //register user http call
     var registerUser = function(bodyData, config) {
         console.log(bodyData);
         var url = "http://localhost:8080/register"

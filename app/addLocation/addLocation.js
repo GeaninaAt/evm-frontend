@@ -11,8 +11,20 @@ angular.module('myApp.addLocation', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
 .controller('addLocationController', ["$scope", "$location", "$cookies", "addLocationFactory", function($scope, $location, $cookies, addLocationFactory) {
 
+    /**
+     * setting variables to show
+     * or hide success and error 
+     * messages
+     */
     $scope.addedLocation = false;
     $scope.invalidLocationForm = false;
+
+    /**
+     * Add location function
+     * it also validate the form 
+     * and change the error or success
+     * messages value regarding to form
+     */
     $scope.addLocation = function(locationName, district, street, number) {
         var dataLocationObject = {
             "locationName": locationName,
@@ -36,11 +48,5 @@ angular.module('myApp.addLocation', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
                 }
             );
         }
-
-
-
     }
-
-
-
 }]);

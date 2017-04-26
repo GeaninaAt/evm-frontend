@@ -9,7 +9,8 @@ angular.module('myApp.login')
             'Accept': 'application/x-spring-data-verbose+json'
         }
     }
-    console.log(config);
+
+    //get events http call paginated
     var getEvents = function(pageNumber) {
         var urlRequest;
         if (pageNumber == null) {

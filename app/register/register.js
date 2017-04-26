@@ -12,12 +12,17 @@ angular.module('myApp.register', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 .controller('registerController', ["$scope", "$cookies", "registerFactory", function($scope, $cookies, registerFactory) {
 
     /**
-     * register a user
+     * setting variables for
+     * success and error messages
      */
-
-
     $scope.addedUser = false;
     $scope.invalidUserForm = false;
+
+    /**
+     * register user also validate form 
+     * and display the property messages regarding
+     * to form
+     */
     $scope.registerUser = function(firstName, lastName, userName, email, password, confirmPassword) {
         var dataBody = {
             "firstName": firstName,
@@ -39,5 +44,4 @@ angular.module('myApp.register', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
         }
     }
-
 }]);

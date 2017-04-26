@@ -11,8 +11,21 @@ angular.module('myApp.addOrganizer', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 
 .controller('addOrganizerController', ["$scope", "$location", "$cookies", "addOrganizerFactory", function($scope, $location, $cookies, addOrganizerFactory) {
 
+    /**
+     * setting variables to show
+     * or hide success and error 
+     * messages
+     */
     $scope.addedOrganizer = false;
     $scope.invalidOrganizerForm = false;
+
+
+    /**
+     * Add organizer function
+     * it also validate the form 
+     * and change the error or success
+     * messages value regarding to form
+     */
     $scope.addOrganizer = function(organizerName, description, site) {
         var dataLocationObject = {
             "organizerName": organizerName,
@@ -35,9 +48,5 @@ angular.module('myApp.addOrganizer', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
                 }
             );
         }
-
     }
-
-
-
 }]);
