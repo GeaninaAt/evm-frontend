@@ -14,7 +14,7 @@ angular.module('myApp.eventDetails')
         }
     }
     var getEventById = function(eventId) {
-        var url = "http://localhost:8080/rest/events/" + 1;
+        var url = "http://localhost:8080/rest/events/" + eventId;
         return $http.get(url, config).then(
             function(response) {
                 return response;

@@ -6,13 +6,21 @@ angular.module('myApp.login')
     var config = {
         headers: {
             'Authorization': 'Bearer' + ' ' + $cookies.get('userToken'),
+            'Accept': 'application/x-spring-data-verbose+json'
         }
     }
     console.log(config);
-    var getEvents = function() {
-        var url = "http://localhost:8080/rest/events";
-        return $http.get(url, config).then(
+    var getEvents = function(pageNumber) {
+        var urlRequest;
+        if (pageNumber == null) {
+            urlRequest = "http://localhost:8080/events?page=0&size=9";
+        } else {
+            urlRequest = "http://localhost:8080/events?page=" + pageNumber + "&size=9";
+        }
+        return $http.get(urlRequest, config).then(
             function(response) {
+                // console.log("-------------");
+                //console.log(response);
                 return response;
             },
             function(err) {
