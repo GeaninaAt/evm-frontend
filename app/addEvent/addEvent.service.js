@@ -36,6 +36,7 @@ angular.module('myApp.addEvent')
     //add Event http call
     var addEvent = function(eventData) {
         var url = 'http://localhost:8080/rest/events';
+        console.log(eventData);
         //we have to change this
         var config = {
             headers: {

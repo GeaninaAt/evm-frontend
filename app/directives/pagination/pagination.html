@@ -4,7 +4,7 @@
             <li ng-click="changePageDesc()">
                 <a href="">&laquo;</a>
             </li>
-            <li ng-repeat="tab in pagesTabs" ng-click="changePage(tab)">
+            <li ng-repeat="tab in pagesTabs" ng-click="changePage(tab)" ng-class="{active: tab == currentPage}">
                 <a href="">{{tab}}</a>
             </li>
             <li ng-click="changePageAsc()">

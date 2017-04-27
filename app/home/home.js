@@ -47,6 +47,7 @@ angular.module('myApp.home', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
      * PAGINATION FUNCTIONALITY
      */
     $scope.changePage = function(pageNumber) {
+        $scope.currentPage = pageNumber;
         HomeFactory.getEvents(pageNumber).then(function(response, pageUrl) {
             $scope.existingEvents = response.data.content;
         });
@@ -75,7 +76,7 @@ angular.module('myApp.home', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
 .filter('limitText', function() {
 
     function returnLimitedText(text) {
-        var parsedText = text.substr(0, text.indexOf('.')); 
+        var parsedText = text.substr(0, text.indexOf('.'));
         return parsedText;
     }
     return returnLimitedText;

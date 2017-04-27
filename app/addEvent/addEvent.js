@@ -50,7 +50,7 @@ angular.module('myApp.addEvent', ['ngRoute', 'ui.bootstrap', 'ngCookies'])
         $scope.invalidEventForm = false;
         var eventObject = {
             "eventName": eventName,
-            "description": description,
+            "eventDescription": description,
             "organizerId": findId($scope.organizers, organizer),
             "locationId": findId($scope.locations, location),
             "startDate": startDate,
